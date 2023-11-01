@@ -16,7 +16,6 @@ class RSACrypt : ICrypt {
         try {
             val cipher = Cipher.getInstance(CryptoConstants.RSA_TRANSFORMATION)
             cipher.init(Cipher.ENCRYPT_MODE, publicKey)
-
             val encryptedBytes = cipher.doFinal(input.toByteArray())
             return Base64.getEncoder().encodeToString(encryptedBytes)
         } catch (e: GeneralSecurityException) {

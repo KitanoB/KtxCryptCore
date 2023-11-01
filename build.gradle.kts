@@ -1,11 +1,10 @@
-val logback_version: String by project
 val koin_version: String by project
 
 plugins {
     kotlin("jvm") version "1.9.10"
 }
 
-group = "com.kitano"
+group = "com.kitano.crypto"
 version = "0.0.1"
 
 
