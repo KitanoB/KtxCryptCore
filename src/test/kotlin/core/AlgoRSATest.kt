@@ -1,8 +1,8 @@
 package core
 
-import com.kitano.core.AlgorithmType
-import com.kitano.core.CrypterFactory
-import com.kitano.core.exceptions.IncorrectKeyException
+import com.kitano.crypto.internal.enums.AlgorithmType
+import com.kitano.crypto.internal.CryptFactory
+import com.kitano.crypto.internal.exceptions.IncorrectKeyException
 import java.security.KeyPair
 import java.security.KeyPairGenerator
 import java.security.PrivateKey
@@ -29,48 +29,48 @@ class AlgoRSATest {
 
     @Test
     fun `when encrypt with rsa same string is  retrieved after decrypt private key`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
-        val encrypt = crypter.encrypt("This is a test", "password123", keyPair!!.public)
-        val decrypt = crypter.decrypt(encrypt, null, keyPair!!.private)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
+        val encrypt = crypt.encrypt("This is a test", "password123", keyPair!!.public)
+        val decrypt = crypt.decrypt(encrypt, null, keyPair!!.private)
         assertEquals("This is a test", decrypt)
     }
 
     @Test(expected = IncorrectKeyException::class)
     fun `when encrypt with rsa same string is not retrieved after a corrupted privateKey`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
-        val encrypt = crypter.encrypt("This is a test", null, keyPair!!.public)
-        crypter.decrypt(encrypt, null, privateKeyInvalid)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
+        val encrypt = crypt.encrypt("This is a test", null, keyPair!!.public)
+        crypt.decrypt(encrypt, null, privateKeyInvalid)
     }
 
     @Test(expected = IncorrectKeyException::class)
     fun `when encrypt with rsa same string is not retrieved after a corrupted publicKey`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
-        val encrypt = crypter.encrypt("This is a test", null, keyPair!!.public)
-        crypter.decrypt(encrypt, null, privateKeyInvalid)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
+        val encrypt = crypt.encrypt("This is a test", null, keyPair!!.public)
+        crypt.decrypt(encrypt, null, privateKeyInvalid)
     }
 
 
     @Test(expected = IncorrectKeyException::class)
     fun `when encrypt with rsa same string is not retrieved after decrypt with nullPrivateKey`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
-        val encrypt = crypter.encrypt("This is a test", "password123", keyPair!!.public)
-        crypter.decrypt(encrypt, "test", null)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
+        val encrypt = crypt.encrypt("This is a test", "password123", keyPair!!.public)
+        crypt.decrypt(encrypt, "test", null)
     }
 
     @Test
     fun `when encrypt empty string with rsa and then decrypt returns empty string`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
-        val encrypt = crypter.encrypt("", null, keyPair!!.public)
-        val decrypt = crypter.decrypt(encrypt, null, keyPair!!.private)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
+        val encrypt = crypt.encrypt("", null, keyPair!!.public)
+        val decrypt = crypt.decrypt(encrypt, null, keyPair!!.private)
         assertEquals("", decrypt)
     }
 
     @Test
     fun `when encrypt special characters with aes same string is retrieved after decrypt`() {
-        val crypter = CrypterFactory.createCrypter(AlgorithmType.RSA)
+        val crypt = CryptFactory.createCrypt(AlgorithmType.RSA)
         val specialString = "这是一个测试"
-        val encrypt = crypter.encrypt(specialString, null, keyPair!!.public)
-        val decrypt = crypter.decrypt(encrypt, null, keyPair!!.private)
+        val encrypt = crypt.encrypt(specialString, null, keyPair!!.public)
+        val decrypt = crypt.decrypt(encrypt, null, keyPair!!.private)
         assertEquals(specialString, decrypt)
     }
 

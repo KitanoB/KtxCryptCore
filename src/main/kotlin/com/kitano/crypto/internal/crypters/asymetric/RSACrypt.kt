@@ -1,8 +1,8 @@
-package com.kitano.core.crypters.asymetric
+package com.kitano.crypto.internal.crypters.asymetric
 
-import com.kitano.core.CryptoConstants
-import com.kitano.core.exceptions.IncorrectKeyException
-import com.kitano.core.internal.ICipher
+import com.kitano.crypto.internal.constants.CryptoConstants
+import com.kitano.crypto.internal.exceptions.IncorrectKeyException
+import com.kitano.crypto.internal.interfaces.ICrypt
 import java.security.GeneralSecurityException
 import java.security.PrivateKey
 import java.security.PublicKey
@@ -10,7 +10,7 @@ import java.util.Base64
 import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
 
-class RSACrypter : ICipher {
+class RSACrypt : ICrypt {
 
     override fun encrypt(input: String, password: String?, publicKey: PublicKey?): String {
         try {

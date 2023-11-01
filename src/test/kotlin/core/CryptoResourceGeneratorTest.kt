@@ -1,7 +1,7 @@
 package core
 
-import com.kitano.core.CryptoResourceGenerator
-import com.kitano.core.CryptoResourceGenerator.generateSalt
+import com.kitano.crypto.internal.CryptoResourceGenerator
+import com.kitano.crypto.internal.CryptoResourceGenerator.generateSalt
 import java.security.NoSuchAlgorithmException
 import javax.crypto.SecretKeyFactory
 import org.junit.Assert.assertArrayEquals

@@ -1,3 +1,3 @@
-package com.kitano.core.exceptions
+package com.kitano.crypto.internal.exceptions
 
 class IncorrectKeyException(message: String) : Exception(message)

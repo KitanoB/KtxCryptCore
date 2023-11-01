@@ -1,4 +1,4 @@
-package com.kitano.core
+package com.kitano.crypto.internal
 
 import java.security.SecureRandom
 import javax.crypto.SecretKeyFactory

@@ -1,10 +1,10 @@
-package com.kitano.core.crypters.symetric
+package com.kitano.crypto.internal.crypters.symetric
 
-import com.kitano.core.AlgorithmType
-import com.kitano.core.CryptoConstants
-import com.kitano.core.CryptoResourceGenerator
-import com.kitano.core.exceptions.IncorrectKeyException
-import com.kitano.core.internal.ICipher
+import com.kitano.crypto.internal.CryptoResourceGenerator
+import com.kitano.crypto.internal.constants.CryptoConstants
+import com.kitano.crypto.internal.enums.AlgorithmType
+import com.kitano.crypto.internal.exceptions.IncorrectKeyException
+import com.kitano.crypto.internal.interfaces.ICrypt
 import java.security.PrivateKey
 import java.security.PublicKey
 import java.util.Base64
@@ -16,7 +16,7 @@ import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.PBEKeySpec
 import javax.crypto.spec.SecretKeySpec
 
-class AESCrypter : ICipher {
+class AESCrypt : ICrypt {
 
     private fun getCipher(): Cipher {
         return Cipher.getInstance(AlgorithmType.AES.transformation)

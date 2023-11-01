@@ -1,4 +1,4 @@
-package com.kitano.core
+package com.kitano.crypto.internal.enums
 
 /**
  * Enum class for the different types of encryption algorithms
