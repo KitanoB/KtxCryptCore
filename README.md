@@ -36,7 +36,6 @@ Example:
 val encryptor = AES()
 val encryptedText = encryptor.encrypt("Hello, World!", "password")
 val decryptedText = encryptor.decrypt(encryptedText, "password")
-println(decryptedText)  // Output: Hello, World!
 ```
 
 # Disclaimer
