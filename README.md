@@ -1,4 +1,4 @@
-# KtxCryptoCore  ![Kotlin](https://img.shields.io/badge/KOTLIN-1.9-green)
+# KtxCryptoCore  ![Kotlin](https://img.shields.io/badge/KOTLIN-1.9-purple) ![Coverage](https://img.shields.io/badge/Coverage-85-green)
 
 KtxCryptoCore is a Kotlin-based library designed to provide robust and efficient string encryption and decryption functionalities. It supports a variety of algorithms including AES, DES, and RSA. This library stands out for its simplicity and educational purpose, aiming to demonstrate encryption and decryption processes without the need for external libraries or internet requests.
 
