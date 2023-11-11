@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'README.md'
 
 jobs:
   update-coverage-badge:
@@ -35,15 +33,16 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
         id: extract_branch
 
-      - name: Create Pull Request
+      - name: Create or Update Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.MY_GITHUB_SECRET }}
+          commit-message: "Update code coverage badge"
           title: "Update code coverage badge"
           body: "Automated update of the code coverage badge."
+          branch: "update-coverage-badge-${{ env.TIMESTAMP }}"
+          base: "main"
           delete-branch: true
           signoff: false
-          milestone: 1
           draft: false
-          base: main
-          branch: update-coverage-badge-${{ env.TIMESTAMP }}
+          milestone: 1
