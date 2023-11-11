@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="core.AlgoAESTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-11-11T09:41:37" hostname="fv-az412-554" time="1.569">
+  <properties/>
+  <testcase name="when decrypt with different key throws exception" classname="core.AlgoAESTest" time="0.518"/>
+  <testcase name="when encrypt with aes same string is not retrieved after decrypt with wrong password" classname="core.AlgoAESTest" time="0.202"/>
+  <testcase name="when encrypt with aes same string is not retrieved after decrypt null password" classname="core.AlgoAESTest" time="0.14"/>
+  <testcase name="when encrypt with aes same string is retrieved after decrypt" classname="core.AlgoAESTest" time="0.222"/>
+  <testcase name="when encrypt long string with aes does throw" classname="core.AlgoAESTest" time="0.203"/>
+  <testcase name="when encrypt empty string with aes and then decrypt returns empty string" classname="core.AlgoAESTest" time="0.136"/>
+  <testcase name="when encrypt special characters with aes same string is retrieved after decrypt" classname="core.AlgoAESTest" time="0.141"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
