@@ -46,9 +46,9 @@ jobs:
           commit-message: "Update code coverage badge"
           title: "Update code coverage badge"
           body: "Automated update of the code coverage badge."
-          branch: "update-coverage-badge-${{ env.TIMESTAMP }}"
-          base: "main"
           delete-branch: true
           signoff: false
-          draft: false
           milestone: 1
+          draft: false
+          base: main
+          branch: update-coverage-badge-${{ env.TIMESTAMP }}
