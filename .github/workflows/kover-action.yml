@@ -20,7 +20,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Run tests and generate coverage report
-        run: ./gradlew test koverHtmlReport
+        run: ./gradlew test koverlog
 
       - name: Update Coverage Badge
         run: ./gradlew updateCoverageBadge
