@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'README.md'
 
 jobs:
   update-coverage-badge:
@@ -22,7 +20,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Run tests and generate coverage report
-        run: ./gradlew koverlog
+        run: ./gradlew test koverlog
 
       - name: Update Coverage Badge
         run: ./gradlew updateCoverageBadge
@@ -35,10 +33,17 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
         id: extract_branch
 
-      - name: Create Pull Request
+      - name: Check if coverage badge update is needed
+        id: check-update
+        run: |
+          git diff --exit-code -- README.md || echo "README_CHANGED=true" >> $GITHUB_ENV
+
+      - name: Create or Update Pull Request
+        if: env.README_CHANGED == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.MY_GITHUB_SECRET }}
+          commit-message: "Update code coverage badge"
           title: "Update code coverage badge"
           body: "Automated update of the code coverage badge."
           delete-branch: true
