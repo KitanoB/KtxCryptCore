@@ -3,7 +3,8 @@ name: Update Code Coverage Badge
 on:
   push:
     branches:
-      - main
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   update-coverage-badge:
@@ -13,6 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Setup JDK
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
